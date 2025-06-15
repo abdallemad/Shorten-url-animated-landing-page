@@ -18,13 +18,13 @@ export function AnimatedListItem({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <motion.div {...animations} layout className="mx-auto w-full">
+    <motion.li {...animations} layout className="mx-auto w-full">
       {children}
-    </motion.div>
+    </motion.li>
   );
 }
 
-export interface AnimatedListProps extends ComponentPropsWithoutRef<"div"> {
+export interface AnimatedListProps extends ComponentPropsWithoutRef<"ul"> {
   children: React.ReactNode;
   delay?: number;
 }
@@ -53,7 +53,7 @@ export const AnimatedList = React.memo(
     }, [index, childrenArray]);
 
     return (
-      <div
+      <ul
         className={cn(`flex flex-col items-center gap-4`, className)}
         {...props}
       >
@@ -64,7 +64,7 @@ export const AnimatedList = React.memo(
             </AnimatedListItem>
           ))}
         </AnimatePresence>
-      </div>
+      </ul>
     );
   },
 );
