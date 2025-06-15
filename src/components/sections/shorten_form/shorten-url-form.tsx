@@ -26,7 +26,7 @@ function ShortenUrlForm({
     >
   >;
 }) {
-  const { form, onSubmit, isPending, isDesktop, formRef,isInView } =
+  const { form, onSubmit, isPending, isMobile, formRef,isInView } =
     useUrlShortFrom(setShortUrls);
   return (
     <Form {...form}>
@@ -39,9 +39,9 @@ function ShortenUrlForm({
       >
         <Image
           src={
-            isDesktop
-              ? "/images/bg-shorten-desktop.svg"
-              : "/images/bg-shorten-mobile.svg"
+            isMobile
+              ? "/images/bg-shorten-mobile.svg"
+              : "/images/bg-shorten-desktop.svg"
           }
           alt="shorten url"
           fill

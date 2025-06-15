@@ -31,7 +31,7 @@ export function useUrlShortFrom(
       url: "",
     },
   });
-  const isDesktop = useMediaQuery({query: "(min-width: 768px)"});
+  const isMobile = useMediaQuery({query: "(max-width: 768px)"});
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: z.infer<typeof schema>) => {
       const response = await axios.post("/api/url", data);
@@ -56,7 +56,7 @@ export function useUrlShortFrom(
     form,
     onSubmit,
     isPending,
-    isDesktop,
+    isMobile,
     formRef, 
     isInView
   };

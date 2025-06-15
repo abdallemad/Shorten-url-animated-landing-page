@@ -25,7 +25,7 @@ const STATISTICS = [
 ] as const;
 
 function Statistics() {
-  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
     <section className="bg-gray-100 py-24">
       <div className="container">
@@ -40,7 +40,7 @@ function Statistics() {
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 max-md:gap-12">
           {STATISTICS.map((s, i) => {
             let translate = 0;
-            if (isDesktop) {
+            if (isMobile) {
               switch (i) {
                 case 0:
                   translate = -50;
@@ -55,11 +55,11 @@ function Statistics() {
             }
             return (
               <li key={s.title} className="relative w-fit h-fit isolate max-md:text-center z-10">
-                {i == 1 && isDesktop && (
-                  <div className="absolute -inset-x-12 bg-primary h-2 top-1/2 -mt-1/2 z-[-99]" />
+                {i == 1 && !isMobile && (
+                  <div className="absolute -inset-x-8 bg-primary h-2 top-1/2 -mt-1/2 z-[-99]" />
                 )}
-                {i == 1 && !isDesktop && (
-                  <div className="absolute -inset-y-12 bg-primary w-2 left-1/2 -ml-1/2 -z-50" />
+                {i == 1 && isMobile && (
+                  <div className="absolute -inset-y-24 bg-primary w-2 left-1/2 -ml-1/2 -z-50" />
                 )}
                 <div
                   className="bg-background px-6 pb-4 rounded-xl relative z-[99]"
